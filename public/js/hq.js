@@ -16,6 +16,15 @@ function getHQStatus() {
             var pump = findDevice("Sump Pump", data);
             updateRoku(roku);
             updateSumpPump(pump);
+            if ((roku.status != "healthy") || (pump.status != "healthy" )) {
+                $('#mainPageStatus').html('Status [Down]');
+                $('#mainPageStatus').addClass("text-danger");
+                $('#mainPageStatus').removeClass("text-success");
+            } else {
+                $('#mainPageStatus').html('Status [OK]');
+                $('#mainPageStatus').removeClass("text-danger");
+                $('#mainPageStatus').addClass("text-success");
+            }
         },
         error: function(data) {
             console.log(data);
@@ -47,5 +56,9 @@ function updateRoku(d){
 }
 
 function updateSumpPump(d) {
-
+    if ( d.status == "healthy") {
+        $('#sumpPumpStatus').html('SumpPump [<span class="text-success">OK</span>]');
+    } else {
+        $('#sumpPumpStatus').html('SumpPump [<span class="text-danger">Down</span>]');
+    }
 }
