@@ -47,11 +47,11 @@ function findDevice(name, devices) {
 function updateRoku(d){
     for ( i = 0; i < d.events.length; i++) {
         var rd = d.events[i].split(":");
-        if ( rd.length < 2) {
+        if ( rd.length < 3) {
             continue;
         }
 
-        $('#rokuplayer' + i).html(rd[0]+'<span class="font-s16 font-w400 text-success animated infinite pulse pull-right">'+rd[1]+'</span>');
+        $('#rokuplayer' + i).html(rd[0]+'<span class="font-s16 font-w400 text-success animated infinite pulse pull-right">'+rd[2]+'</span>');
     }        
 }
 

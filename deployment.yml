@@ -1,0 +1,64 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hqweb-ingress
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /
+          backend:
+            serviceName: hqweb
+            servicePort: 3003
+
+
+---
+apiVersion: v1
+data:
+  HQSERVER_ADDRESS: <base64> 
+kind: Secret
+metadata:
+  name: hqwebenv
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hqweb
+  name: hqweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hqweb
+  template:
+    metadata:
+      labels:
+        app: hqweb
+    spec:
+      containers:
+      - image: randomtask1155/hqweb
+        name: hqweb
+        env:
+          - name: HQSERVER_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                name: hqwebenv
+                key: HQSERVER_ADDRESS
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hqweb
+spec:
+  selector:
+    app: hqweb
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 9000
+  type: NodePort
+
+

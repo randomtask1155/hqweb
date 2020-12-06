@@ -24,6 +24,23 @@ h1, h2, h3, .h1, .h2, .h3, .heading {
     color: #e8f4ff;
 }
 
+.modal {
+    text-align: center;
+    padding: 0!important;
+  }
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+
 a {
     color: #62d0f0;
     font-weight: 600;
@@ -258,7 +275,7 @@ a.link-sf:active:before {
     height: 52%;
     top: 24%;
     left: 24%;
-    background: rgba(98, 208, 240, .02) url(../img/bg_circle_0.png) center center no-repeat;
+    background: rgba(98, 208, 240, .02) url(../img/eye-4.png) center center no-repeat;
     -webkit-animation: spin 80s infinite linear;
     animation: spin 80s infinite linear;
 }

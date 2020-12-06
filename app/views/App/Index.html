@@ -31,7 +31,7 @@
         -->
         <div id="page-container" class="modern-sf">
             <!-- Header -->
-            <header id="page-header">
+            <!--<header id="page-header">
                 <div class="h3 text-right pull-right hidden-xs">
                     <div class="text-crystal font-w300"></div>
                     <div id="mainPageStatus" class="text-success animated infinite pulse pull-right">Status [OK]</div>
@@ -39,7 +39,7 @@
                 <h1 class="h3 font-w200">
                     <span class="text-crystal">//</span> <a class="link-sf font-w300" href="/">Headquarters</a>
                 </h1>
-            </header>
+            </header>-->
             <!-- END Header -->
 
             <!-- Main Content -->
@@ -149,11 +149,9 @@
                             </div>
                             <div class="block-content" id=rokuplayers>
                                 <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="200">
-                                            <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="50" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
-                                                <span class="font-s16 font-w600"></span>
-                                            </div>
-                                    </div>
+                                    <button type="button" class="btn btn-primary col-xs-4 text-center" data-toggle="modal" data-target="#rokuremote">
+                                    remote
+                                    </button>
                                     <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="400">
                                         <div class="text-uppercase font-w600 text-white-op" id="rokuplayer0"></div>
                                     </div>
@@ -197,7 +195,7 @@
                                         <div id="sumpPumpStatus" class="font-s24 font-w300 text-white-op">SumpPump [<span class="text-success">OK</span>]</div>
                                     </div>
                                     <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
-                                        <div class="font-s24 font-w300 text-white-op">GCP Instance [<span class="text-success">OK</span>]</div>
+                                        <!--<div class="font-s24 font-w300 text-white-op">GCP Instance [<span class="text-success">OK</span>]</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -282,11 +280,34 @@
         </div>
         <!-- END Page Container -->
 
+        <!-- rokue modal -->
+        <div id="rokuremote" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <!-- Scripts -->
         <script src="public/js/core/jquery.min.js"></script>
         <script src="public/js/plugins/jquery.appear.min.js"></script>
         <script src="public/js/plugins/jquery.countTo.min.js"></script>
         <script src="public/js/plugins/jquery.easypiechart.min.js"></script>
+        <script src="public/js/popper.min.js"></script>
+        <script src="public/js/bootstrap-3.3.6.min.js"></script>
         <script src="public/js/ares.js"></script>
         <script src="public/js/hq.js"></script>
 
